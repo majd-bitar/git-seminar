@@ -1,0 +1,115 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #222;
+  color: white;
+}
+
+/* Container for the Git & GitHub icons */
+.iconsContainer {
+  display: flex;
+  gap: 15px; /* Spacing between icons */
+}
+
+/* Icon styles */
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gitIcon,
+.githubIcon {
+  font-size: 40px; /* Bigger icons */
+  transition: color 0.3s ease-in-out, transform 0.2s;
+}
+
+/* Git icon (orange-red) */
+.gitIcon {
+  color: #f34f29;
+}
+
+.gitIcon:hover {
+  color: #e24329;
+  transform: scale(1.2);
+}
+
+/* GitHub icon (white) */
+.githubIcon {
+  color: white;
+}
+
+.githubIcon:hover {
+  color: #c0c0c0;
+  transform: scale(1.2);
+}
+
+/* Theme Toggle Button */
+.themeToggle {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.themeIcon{
+  color: white;
+}
+
+.customToast {
+  background-color: #ff4500 !important; /* Bright Orange */
+  color: #fff !important;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.8);
+  padding: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  pointer-events: none; /* ✅ Prevents accidental interactions */
+}
+
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #222;
+  color: white;
+}
+
+/* Icons Container (Git & GitHub) */
+.iconsContainer {
+  display: flex;
+  gap: 15px;
+}
+
+
+/* Theme Icon - Always at the End */
+.themeContainer {
+  margin-left: auto; /* Pushes to the end */
+}
+
+.themeToggle {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: transform 0.2s ease-in-out;
+}
+
+.themeToggle:hover {
+  transform: scale(1.2);
+}
+

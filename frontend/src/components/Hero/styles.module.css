@@ -1,0 +1,117 @@
+.heroWrapper {
+  display: flex;
+  background: #1e1e1e;
+  color: #fff;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Steps Container (vertical track & circles) */
+.stepsContainer {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+/* The track line */
+.track {
+  position: relative;
+  width: 2px;
+  height: 80vh;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+}
+
+/* The fill line that animates in height */
+.fillLine {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: #1e90ff;
+  border-radius: 1px;
+  height: 0;
+  top: 0;
+}
+
+/* Circles spaced along the track */
+.circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #444;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 22px;
+  cursor: pointer;
+  border: 2px solid #1e90ff;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.active {
+  background: #1e90ff;
+  color: #000;
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* The main content area */
+.content {
+  margin-left: 80px; /* space for the steps bar */
+  padding: 2rem;
+  width: 100%;
+}
+/* FINAL BUTTONS CONTAINER */
+.finalButtons {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* FINAL BUTTONS CONTAINER */
+.finalButtons {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row; /* Change from column to row */
+  gap: 1rem; /* Space between buttons */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+/* Action Button */
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #3498db; /* Modern blue */
+  color: #fff;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
+  box-shadow: 0 3px 10px rgba(52, 152, 219, 0.2);
+  min-width: 230px; /* Ensures buttons have a uniform size */
+  text-align: center;
+}
+
+.actionButton:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 1.2rem;
+}

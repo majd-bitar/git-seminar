@@ -1,0 +1,67 @@
+/* Global Styles */
+:root {
+    --primary-color: #1e90ff;
+    --background-dark: #121212;
+    --background-light: #ffffff;
+    --text-dark: #ffffff;
+    --text-light: #000000;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Apply dark mode */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  body.dark {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+  
+  body.light {
+    background-color: var(--background-light);
+    color: var(--text-light);
+  }
+  
+  /* Container styling */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Buttons */
+  .button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .button:hover {
+    background-color: #0073e6;
+  }
+  
+  /* Flex utilities */
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Text Utilities */
+  .text-center {
+    text-align: center;
+  }
+  
+  

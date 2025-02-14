@@ -1,0 +1,26 @@
+.gitGraphContainer {
+    padding: 2rem;
+    background: #fafbfd;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  .gitGraphTitle {
+    font-size: 1.8rem;
+    color: #3e3e3e;
+    margin-bottom: 1rem;
+  }
+  
+  .gitGraphExplanation {
+    max-width: 600px;
+    margin: 0 auto 1rem auto;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .gitGraphArea {
+    display: flex;
+    justify-content: center;
+  }
+  
