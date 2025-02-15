@@ -17,7 +17,7 @@ const HistorySection = React.forwardRef((props, ref) => {
           </p>
         </div>
         <img
-          src="../../../../public/linus-pic.jpg"
+          src="/linus-pic.jpg"
           alt="Linus Torvalds"
           className={styles.linusPic}
         />
