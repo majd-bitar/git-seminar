@@ -100,9 +100,8 @@ export default function GitVisualizer() {
   }, [commits, branches]);
 
   function drawGraph() {
-    const width = 700;
-    const height = 500;
-
+    const container = svgRef.current;
+    const { width, height } = container.getBoundingClientRect();
     const nodes = commits.map((c) => ({ id: c.id }));
     const links = commits.flatMap((c) =>
       c.parents.map((p) => ({ source: c.id, target: p }))
@@ -189,60 +188,60 @@ export default function GitVisualizer() {
 
   return (
     <div className={styles.visualizerWrapper}>
-      {/* Back Button aligned to the left */}
       <button onClick={() => navigate('/home')} className={styles.backButton}>
         ⬅ Back
       </button>
 
+      {/* Title and subtitle can stay at top, or move left—your choice */}
       <h2 className={styles.title}>Git Visualizer</h2>
       <p className={styles.subtitle}>Manage branches and commits visually.</p>
 
-      <div className={styles.topRow}>
-        <div className={styles.buttonsContainer}>
-          <button onClick={handleCommit} className={styles.commitBtn}>
-            Commit
-          </button>
-          <button onClick={handleMerge} className={styles.mergeBtn}>
-            Merge
-          </button>
-          <button onClick={handleClear} className={styles.clearBtn}>
-            Clear All
-          </button>
+      {/* FLEX container: left side vs. right side */}
+      <div className={styles.visualizerContent}>
+        {/* LEFT PANEL */}
+        <div className={styles.leftPanel}>
+          {/* All your “top row” stuff */}
+          <div className={styles.topRow}>
+            <div className={styles.buttonsContainer}>
+              <button onClick={handleCommit} className={styles.commitBtn}>Commit</button>
+              <button onClick={handleMerge} className={styles.mergeBtn}>Merge</button>
+              <button onClick={handleClear} className={styles.clearBtn}>Clear All</button>
+            </div>
+
+            <div className={styles.branchesBox}>
+              <h3>Branches</h3>
+              <p>HEAD: <strong>{headBranch}</strong></p>
+              <ul>
+                {Object.keys(branches).map(b => (
+                  <li key={b}>
+                    {b} {b === headBranch && '(HEAD)'}
+                  </li>
+                ))}
+              </ul>
+              <button onClick={handleCheckout} className={styles.checkoutBtn}>Checkout</button>
+            </div>
+          </div>
+
+          {/* Branch creation row */}
+          <div className={styles.branchCreateRow}>
+            <input
+              type="text"
+              value={newBranch}
+              onChange={e => setNewBranch(e.target.value)}
+              placeholder="Enter branch name"
+              className={styles.branchInput}
+            />
+            <button onClick={handleCreateBranch} className={styles.createBranchBtn}>
+              Create Branch
+            </button>
+          </div>
         </div>
 
-        {/* Branches info box */}
-        <div className={styles.branchesBox}>
-          <h3>Branches</h3>
-          <p>
-            HEAD: <strong>{headBranch}</strong>
-          </p>
-          <ul>
-            {Object.keys(branches).map(b => (
-              <li key={b}>
-                {b} {b === headBranch && '(HEAD)'}
-              </li>
-            ))}
-          </ul>
-          <button onClick={handleCheckout} className={styles.checkoutBtn}>
-            Checkout
-          </button>
+        {/* RIGHT PANEL: the D3 graph */}
+        <div className={styles.rightPanel}>
+          <div ref={svgRef} className={styles.graphArea} />
         </div>
       </div>
-
-      <div className={styles.branchCreateRow}>
-        <input
-          type="text"
-          value={newBranch}
-          onChange={e => setNewBranch(e.target.value)}
-          placeholder="Enter branch name"
-          className={styles.branchInput}
-        />
-        <button onClick={handleCreateBranch} className={styles.createBranchBtn}>
-          Create Branch
-        </button>
-      </div>
-
-      <div ref={svgRef} className={styles.graphArea} />
     </div>
   );
 }

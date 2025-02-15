@@ -73,3 +73,28 @@
     background: #c0392b;
   }
   
+/* Shrink padding on smaller screens */
+@media (max-width: 1090px) {
+  .quizContainer {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
+  }
+}
+/* Shrink padding on smaller screens */
+@media (max-width: 600px) {
+  .quizContainer {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 70%;
+  }
+}
+
+/* Shrink padding on smaller screens */
+@media (max-width: 300px) {
+  .quizContainer {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 60%;
+  }
+}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom'; // If you use react-router
-// Example imports for your sections (adapt to your file structure)
 import IntroSection from './IntroSection';
 import HistorySection from './HistorySection';
 import CentralVsDistributedSection from './CentralVsDistributedSection';
@@ -12,7 +11,7 @@ import GitHubStatsSection from './GitHubStatsSection';
 import CICDSection from './CICDSection';
 import AdvancedCommandsSection from './AdvancedCommandsSection';
 import BestPracticesSection from './BestPracticesSection';
-import { FaCode, FaClipboardCheck } from 'react-icons/fa'; // Import icons
+import { FaCode, FaClipboardCheck } from 'react-icons/fa';
 import styles from './styles.module.css';
 
 export default function Hero() {
@@ -58,7 +57,6 @@ export default function Hero() {
       setActiveSection(currentIndex);
 
       // The fill line from top circle to bottom circle
-      // If there are 10 circles => 9 intervals => fill = index/9 * 100
       const maxIndex = sections.length - 1;
       const percent = (currentIndex / maxIndex) * 100;
       setFillPercent(percent);
@@ -87,15 +85,14 @@ export default function Hero() {
     <div className={styles.heroWrapper}>
       {/* LEFT-SIDE VERTICAL STEP WIZARD */}
       <div className={styles.stepsContainer}>
-        {/* The track that will be partially filled */}
         <div className={styles.track}>
-          {/* The fill line (animated with motion) */}
+          {/* The fill line (animated) */}
           <motion.div
             className={styles.fillLine}
             style={{ height: `${fillPercent}%` }}
             transition={{ type: 'tween', duration: 0.2 }}
           />
-          {/* Render each circle (1..N) at evenly spaced intervals */}
+          {/* Circles */}
           {sections.map((_, i) => {
             const isActive = i <= activeSection;
             const positionPercent = (i / (sections.length - 1)) * 100;
@@ -126,21 +123,17 @@ export default function Hero() {
         <AdvancedCommandsSection ref={sections[8].ref} />
         <BestPracticesSection ref={sections[9].ref} />
 
-
-        {/* FINAL BUTTONS (Now in a Row) */}
+        {/* FINAL BUTTONS */}
         <div className={styles.finalButtons}>
           <button onClick={handleTryYourself} className={styles.actionButton}>
             <FaCode className={styles.icon} />
-            Train on Git Basics
+            <span>Train on Git Basics</span>
           </button>
           <button onClick={handleTakeQuiz} className={styles.actionButton}>
             <FaClipboardCheck className={styles.icon} />
-            Take the Git & GitHub Quiz
+            <span>Take the Git & GitHub Quiz</span>
           </button>
         </div>
-
-        
-
       </div>
     </div>
   );

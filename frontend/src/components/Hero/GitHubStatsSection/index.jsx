@@ -3,7 +3,6 @@ import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import styles from './styles.module.css';
 
-// Register necessary Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const usagePieData = {
@@ -17,16 +16,30 @@ const usagePieData = {
   ],
 };
 
+/** Add these chartOptions */
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false, // Let our container control size
+  plugins: {
+    legend: {
+      position: 'right',      // place legend to the right
+      align: 'center',        // center legend vertically
+    },
+  },
+};
+
 const GitHubStatsSection = React.forwardRef((props, ref) => {
   return (
     <section ref={ref} className={styles.section}>
-      <h2>Git & GitHub Worldwide Stats</h2>
+      <h2>Git &amp; GitHub Worldwide Stats</h2>
       <p>
-        According to various surveys, Git-based platforms dominate modern version control.
-        Here’s a sample distribution:
+        According to various surveys, Git-based platforms dominate modern version
+        control. Here’s a sample distribution:
       </p>
+
+      {/* Use a taller, flex container so chart & legend appear side-by-side */}
       <div className={styles.chartContainer}>
-        <Pie data={usagePieData} />
+        <Pie data={usagePieData} options={chartOptions} />
       </div>
     </section>
   );

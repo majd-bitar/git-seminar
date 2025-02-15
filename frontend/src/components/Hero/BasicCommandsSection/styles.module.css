@@ -1,49 +1,86 @@
 .section {
-    background-color: #2c2c2c;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  }
-  
-  .section h2 {
-    color: #f1f1f1;
-    margin-bottom: 1rem;
-  }
-  
-  .commandsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-  
-  .commandCard {
-    background-color: #333;
+  background-color: #2c2c2c;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  max-width: 95%;
+}
+
+.section h2 {
+  color: #f1f1f1;
+  margin-bottom: 1rem;
+}
+
+.commandsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.commandCard {
+  background-color: #333;
+  padding: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.commandCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.commandCard h3,
+.commandCard p {
+  margin: 0.5rem 0;
+}
+
+.hoverExtra {
+  margin-top: 0.5rem;
+  background: #2f2f5f; 
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background-image: radial-gradient(ellipse at center, #3b3b98, #2f2f5f 80%);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* bigger screens */
+@media (max-width: 1390px) {
+  .section {
     padding: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 1rem;
+    width: 80%;
   }
-  .commandCard:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Shrink padding on smaller screens */
+@media (max-width: 1090px) {
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
   }
-  .commandCard h3,
-  .commandCard p {
-    margin: 0.5rem 0;
+}
+/* Shrink padding on smaller screens */
+@media (max-width: 600px) {
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 70%;
   }
-  
-  .hoverExtra {
-    margin-top: 0.5rem;
-    background: #2f2f5f; 
-    color: #fff;
-    padding: 0.75rem;
-    border-radius: 4px;
-    background-image: radial-gradient(ellipse at center, #3b3b98, #2f2f5f 80%);
-    background-size: cover;
-    background-position: center;
-    transform-origin: top;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Shrink padding on smaller screens */
+@media (max-width: 320px) {
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 65%;
   }
-  
+  .commandCard{
+    max-width: 65%;
+  }
+}

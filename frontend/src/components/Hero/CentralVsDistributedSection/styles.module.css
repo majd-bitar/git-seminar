@@ -1,24 +1,69 @@
 .section {
-    background-color: #2c2c2c;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  }
-  
-  .section h2 {
-    color: #f1f1f1;
-    margin-bottom: 1rem;
-  }
-  
-  .gitGraphContainer {
-    margin-top: 1rem;
-    background: #202020;
+  background-color: #2c2c2c;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  max-width: 95%;
+}
+
+.section h2 {
+  color: #f1f1f1;
+  margin-bottom: 1rem;
+}
+
+.gitGraphContainer {
+  margin-top: 1rem;
+  background: #202020;
+  padding: 1rem;
+  border-radius: 6px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+
+  /* Let it scroll if needed on small screens */
+  overflow-x: auto;
+}
+
+/* bigger screens */
+@media (max-width: 1390px) {
+  .section {
     padding: 1rem;
-    border-radius: 6px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    width: 80%;
   }
-  
+}
+
+/* Responsive media query: expand to full width if needed */
+@media (max-width: 768px) {
+  .gitGraphContainer {
+    max-width: 100%;
+  }
+}
+
+/* Shrink padding on smaller screens */
+@media (max-width: 1090px) {
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
+  }
+}
+/* Shrink padding on smaller screens */
+@media (max-width: 600px) {
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    width: 80%;
+  }
+}
+
+/* Shrink padding on smaller screens */
+@media (max-width: 300px) {
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 65%;
+  }
+}

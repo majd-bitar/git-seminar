@@ -4,6 +4,9 @@
   color: #fff;
   width: 100%;
   min-height: 100vh;
+  
+  /* Prevent horizontal scrolling */
+  overflow-x: hidden;
 }
 
 /* Steps Container (vertical track & circles) */
@@ -63,55 +66,106 @@
 
 /* The main content area */
 .content {
-  margin-left: 80px; /* space for the steps bar */
+  margin-left: 40px; /* space for the steps bar */
   padding: 2rem;
   width: 100%;
 }
-/* FINAL BUTTONS CONTAINER */
-.finalButtons {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
 
 /* FINAL BUTTONS CONTAINER */
 .finalButtons {
   margin-top: 4rem;
   display: flex;
-  flex-direction: row; /* Change from column to row */
-  gap: 1rem; /* Space between buttons */
+  flex-direction: row;
+  gap: 1.2rem;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Ensures responsiveness */
+  flex-wrap: wrap;
 }
 
-/* Action Button */
+/* BUTTON STYLING */
 .actionButton {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: #3498db; /* Modern blue */
+  background-color: #3498db;
   color: #fff;
   border: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
-  padding: 0.6rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, transform 0.2s;
   box-shadow: 0 3px 10px rgba(52, 152, 219, 0.2);
-  min-width: 230px; /* Ensures buttons have a uniform size */
+  min-width: 220px;
+  max-width: 300px;
   text-align: center;
 }
 
+/* BUTTON HOVER */
 .actionButton:hover {
   background-color: #2980b9;
   transform: scale(1.05);
 }
 
+/* ICON SIZE */
 .icon {
   font-size: 1.2rem;
+}
+
+
+/* 📱 RESPONSIVE FIX for final buttons at ≤ 751px */
+@media (max-width: 751px) {
+  .finalButtons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .actionButton {
+    width: 90%;
+    max-width: 350px;
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .icon {
+    font-size: 1rem;
+  }
+}
+
+/* 📱 EXTRA SMALL SCREENS (≤ 480px): Remove text & shorten labels */
+@media (max-width: 480px) {
+  .actionButton {
+    width: 70px; /* reduce button size */
+    height: 70px;
+    padding: 10px;
+    font-size: 0.8rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .actionButton span {
+    display: none; /* hide text */
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+}
+
+/* HIDE or REWORK the left wizard under a certain width (example: 900px) */
+@media (max-width: 900px) {
+  .content {
+    margin-left: 2rem; /* remove left margin since wizard is hidden */
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .content {
+    margin-left: 2rem; /* remove left margin since wizard is hidden */
+    padding: 1rem;
+  }
 }

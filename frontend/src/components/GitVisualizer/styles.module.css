@@ -1,194 +1,249 @@
-/* Reset typical body padding/margins to avoid white space */
-body, html {
-  margin: 0;
-  padding: 0;
-  background: #222; /* same background as your page, if desired */
-  height: 100%;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Hide scrollbars if you want to fully remove them globally */
-body::-webkit-scrollbar {
-  display: none;
-}
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/***********************************************
-  The Visualizer wrapper, below the navbar
-***********************************************/
-
-/* If your navbar is, say, 60px tall, subtract that from 100vh */
-.visualizerWrapper {
-  min-height: calc(100vh - 60px); /* adjust to your navbar height */
-  background: #222;
-  color: #fff;
-  padding: 2rem;
-  position: relative; 
-  box-sizing: border-box;
-}
-
-/* The "Back" button top-left, but not interfering with the navbar.
-   You can tweak top / left if needed. */
-.backButton {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: transparent;
-  border: 2px solid white;
-  color: white;
-  padding: 8px 14px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-}
-.backButton:hover {
-  background: white;
-  color: black;
-}
-
-/***********************************************
-  Title & Subtitle
-***********************************************/
-.title {
-  margin: 0;
-  font-size: 2rem;
-  color: #ffcc00;
-  text-shadow: 2px 2px 4px rgba(255, 255, 0, 0.4);
-  text-align: center;
-}
-.subtitle {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  color: #eee;
-  text-align: center;
-}
-
-/***********************************************
-  Top row: Commit/Merge/Clear + Branches box
-***********************************************/
-.topRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-.buttonsContainer {
-  display: flex;
-  gap: 1rem;
-}
-.commitBtn, .mergeBtn, .clearBtn {
-  border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: transform 0.2s;
-}
-.commitBtn {
-  background: #ffcc00;
-  color: #000;
-}
-.commitBtn:hover {
-  background: #e6b800;
-  transform: translateY(-2px);
-}
-.mergeBtn {
-  background: #ffcc00;
-  color: #000;
-}
-.mergeBtn:hover {
-  background: #e6b800;
-  transform: translateY(-2px);
-}
-.clearBtn {
-  background: #e67e22;
-  color: #fff;
-}
-.clearBtn:hover {
-  background: #d35400;
-  transform: translateY(-2px);
-}
-
-/***********************************************
-  Branches Box on the right
-***********************************************/
-.branchesBox {
-  background: #111; 
-  border: 2px solid #ffcc00;
-  border-radius: 8px;
-  padding: 1rem;
-  width: 180px;
-  height: auto;
-  box-shadow: 0 0 6px rgba(255,255,0,0.2);
-}
-.branchesBox h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: #ffcc00;
-  font-size: 1.1rem;
-}
-.branchesBox ul {
-  list-style: none;
-  margin: 0.5rem 0;
-  padding-left: 0;
-}
-.checkoutBtn {
-  background: #3498db;
-  border: none;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 0.5rem;
-}
-.checkoutBtn:hover {
-  background: #2980b9;
-}
-
-/***********************************************
-  Branch creation row
-***********************************************/
-.branchCreateRow {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  justify-content: center;
-}
-.branchInput {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 200px;
-}
-.createBranchBtn {
-  background: #1abc9c;
-  border: none;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.createBranchBtn:hover {
-  background: #16a085;
-}
-
-/***********************************************
-  Graph area
-***********************************************/
-.graphArea {
-  width: 700px;
-  height: 500px;
-  background: #2c3e50;
-  border-radius: 8px;
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  position: relative;
-}
+/* ==========================
+   1) Base resets
+   ========================== */
+   html, body {
+    margin: 0;
+    padding: 0;
+    background: #222;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    /* Remove OS scrollbars if desired: */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* ==========================
+     2) Visualizer Wrapper
+     ========================== */
+  .visualizerWrapper {
+    /* Use full viewport height, minus 60px if you have a fixed navbar */
+    min-height: calc(100vh - 60px);
+    box-sizing: border-box;
+    color: #fff;
+    padding: 2rem;
+    position: relative;
+    /* No horizontal scroll on small screens: */
+    overflow-x: hidden;
+  }
+  
+  /* (Optional) "Back" button in top-left corner */
+  .backButton {
+    position: absolute;
+    top: 10px; 
+    left: 10px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+  }
+  .backButton:hover {
+    background: #fff;
+    color: #000;
+  }
+  
+  /* ==========================
+     3) Title & Subtitle
+     ========================== */
+  .title {
+    margin: 0;
+    font-size: 2rem;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(255, 255, 0, 0.4);
+    text-align: center;
+  }
+  .subtitle {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #eee;
+    text-align: center;
+  }
+  
+  /* ==========================
+     4) Two-Column Layout
+     ========================== */
+  .visualizerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* align at top */
+    gap: 2rem;              /* space between left & right panels */
+    /* If you want the entire content to fit on one screen, 
+       you could force a fixed height. 
+       But typically, letting it expand vertically is fine. */
+  }
+  
+  /* LEFT PANEL (controls & branches) */
+  .leftPanel {
+    flex: 0 0 auto;
+    max-width: 350px; 
+  }
+  
+  /* RIGHT PANEL (graph) auto-expands to fill leftover space */
+  .rightPanel {
+    flex: 1;
+    display: flex;           /* so we can center the .graphArea if narrower */
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+  }
+  
+  /* ==========================
+     Top row inside leftPanel
+     ========================== */
+  .topRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .buttonsContainer {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .commitBtn, .mergeBtn, .clearBtn {
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+  .commitBtn, .mergeBtn {
+    background: #ffcc00;
+    color: #000;
+  }
+  .commitBtn:hover, .mergeBtn:hover {
+    background: #e6b800;
+    transform: translateY(-2px);
+  }
+  .clearBtn {
+    background: #e67e22;
+    color: #fff;
+  }
+  .clearBtn:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+  }
+  
+  /* Branches Box */
+  .branchesBox {
+    background: #111;
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: 0 0 6px rgba(255, 255, 0, 0.2);
+    text-align: center;
+  }
+  .branchesBox h3 {
+    margin: 0 0 0.5rem 0;
+    color: #ffcc00;
+    font-size: 1.1rem;
+  }
+  .branchesBox ul {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding-left: 0;
+  }
+  .checkoutBtn {
+    background: #3498db;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  .checkoutBtn:hover {
+    background: #2980b9;
+  }
+  
+  /* Branch creation row */
+  .branchCreateRow {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+  }
+  .branchInput {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 200px;
+  }
+  .createBranchBtn {
+    background: #1abc9c;
+    border: none;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .createBranchBtn:hover {
+    background: #16a085;
+  }
+  
+  /* ==========================
+     Graph area
+     ========================== */
+  .graphArea {
+    /* Instead of fixed px, let it be fluid. 
+       Keep a min size so it's not too tiny. */
+    width: 100%;
+    height: auto; 
+    min-width: 400px;
+    min-height: 400px;
+  
+    /* Distinct styling */
+    background: #2f2f5f; /* or a gradient if you like: 
+                         background: linear-gradient(135deg, #2c2c60, #4b4b8f); */
+    border: 2px solid #aaa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  
+    position: relative;
+    margin: 0 auto; 
+  }
+  
+  /* ==========================
+     5) Responsive Breakpoints
+     ========================== */
+  
+  /* Below 750px: Stack the panels, shrink the graph a bit */
+  @media (max-width: 750px) {
+    .visualizerContent {
+      flex-direction: column;
+      align-items: center;
+    }
+    .leftPanel {
+      max-width: 95%;
+      margin-bottom: 1.5rem;
+    }
+    .rightPanel {
+      width: 90%;
+    }
+    .graphArea {
+      min-width: 300px;
+      min-height: 300px;
+    }
+  }
+  
+  /* Below 500px: further shrink the graph area */
+  @media (max-width: 500px) {
+    .graphArea {
+      min-width: 250px;
+      min-height: 250px;
+    }
+  }
+  

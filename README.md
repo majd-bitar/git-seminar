@@ -26,7 +26,6 @@ The website is designed for **students, beginners, and developers** who want to 
 | **Technology** | **Purpose** |
 |--------------|------------|
 | ⚛️ React | Frontend framework |
-| 🎨 Tailwind CSS | Responsive UI & Dark Mode |
 | 🎬 Framer Motion | Animations & smooth transitions |
 | 📊 D3.js / Mermaid.js | Interactive Git visualizations |
 | 🔥 Vite | Fast build tool for React |

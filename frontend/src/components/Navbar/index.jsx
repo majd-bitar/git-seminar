@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>Git Seminar</div>
+      <Link to='/home' className={styles.logo}>Git Seminar</Link>
       <div className={styles.iconsContainer}>
         <Link to="/home" className={styles.navIcon}>
           <FaGitAlt className={styles.gitIcon} />

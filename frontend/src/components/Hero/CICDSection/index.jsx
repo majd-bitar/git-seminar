@@ -12,12 +12,12 @@ const CICDSection = React.forwardRef((props, ref) => {
       </p>
 
       <h3 className={styles.subtitle}>Why is CI/CD Important?</h3>
-      <ul className={styles.benefitsList}>
-        <li>✅ **Faster Development Cycles** – Automates integration & deployment, reducing manual work.</li>
-        <li>✅ **Early Bug Detection** – Continuous testing helps identify issues before they reach production.</li>
-        <li>✅ **Consistent Deployments** – Ensures every deployment follows a standardized process.</li>
-        <li>✅ **Better Collaboration** – Encourages teams to commit changes frequently, reducing conflicts.</li>
-        <li>✅ **Scalability** – Can handle small teams to enterprise-level projects with ease.</li>
+      <ul className={styles.pipelineContainer}>
+        <li className={styles.pipelineCard}>✅ **Faster Development Cycles** – Automates integration & deployment, reducing manual work.</li>
+        <li className={styles.pipelineCard}>✅ **Early Bug Detection** – Continuous testing helps identify issues before they reach production.</li>
+        <li className={styles.pipelineCard}>✅ **Consistent Deployments** – Ensures every deployment follows a standardized process.</li>
+        <li className={styles.pipelineCard}>✅ **Better Collaboration** – Encourages teams to commit changes frequently, reducing conflicts.</li>
+        <li className={styles.pipelineCard}>✅ **Scalability** – Can handle small teams to enterprise-level projects with ease.</li>
       </ul>
 
       {/* ✅ CI/CD Pipeline Flow */}
@@ -56,20 +56,20 @@ const CICDSection = React.forwardRef((props, ref) => {
 
       {/* ✅ Deployment Environments */}
       <h3 className={styles.subtitle}>Deployment Environments</h3>
-      <div className={styles.envContainer}>
-        <div className={styles.envCard}>
+      <div className={styles.pipelineContainer}>
+        <div className={styles.pipelineCard}>
           <FaServer className={styles.envIcon} />
           <h4>Sandbox</h4>
           <p>A private environment for developers to test changes before pushing them to staging.</p>
         </div>
 
-        <div className={styles.envCard}>
+        <div className={styles.pipelineCard}>
           <FaVial className={styles.envIcon} />
           <h4>Staging</h4>
           <p>A mirror of production used for final testing before deployment.</p>
         </div>
 
-        <div className={styles.envCard}>
+        <div className={styles.pipelineCard}>
           <FaRocket className={styles.envIcon} />
           <h4>Production</h4>
           <p>The live environment where users interact with the application.</p>
