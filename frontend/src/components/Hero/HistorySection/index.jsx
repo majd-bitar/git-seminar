@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './styles.module.css';
-
 const HistorySection = React.forwardRef((props, ref) => {
   return (
     <section ref={ref} className={styles.section}>
@@ -18,7 +17,7 @@ const HistorySection = React.forwardRef((props, ref) => {
           </p>
         </div>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Linus_Torvalds_in_2002.jpg"
+          src="../../../../public/linus-pic.jpg"
           alt="Linus Torvalds"
           className={styles.linusPic}
         />
